@@ -1,0 +1,412 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+   <script>
+       (function (i, s, o, g, r, a, m) {
+           i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
+               (i[r].q = i[r].q || []).push(arguments)
+           }, i[r].l = 1 * new Date(); a = s.createElement(o),
+               m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
+       })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+
+       ga('create', 'UA-110588167-1', 'auto');
+       ga('send', 'pageview');
+   </script>
+    
+    <title>Discover London</title>
+    <link rel="stylesheet" href="css/bulma.css">
+    <link rel="stylesheet" href="css/style.css" />
+    <script src="js/jquery-3.2.1.min.js"></script>
+    <script src="js/script.js"></script>
+</head>
+`
+<body>
+
+    <!--Page heading-->
+    <section class="hero is-medium is-primary is-bold">
+        <div class="hero-body has-bg-img-first">
+            <div class="container">
+                <h1 class="title">
+                    Discover London
+                </h1>
+                <h2 class="subtitle">
+                    Use this website to find out about what's available for you to do in London!
+                </h2>
+            </div>
+        </div>
+    </section>
+
+    <!--Central content area (Bulma Modal Card)-->
+    <div class="modal" id="cca">
+        <div class="modal-background"></div>
+        <div class="modal-card">
+            <header class="modal-card-head">
+                <p class="modal-card-title">Selection</p>
+                <button id="cca-close" class="modal-close is-large" aria-label="close"></button>
+            </header>
+            <section class="modal-card-body">
+                <div class="message-body" id="selection-message">
+                </div>
+                <div class="message-body" id="selection-description">
+                </div>
+                <div class="message-body" id="selection-picture">
+                    <img src="" id="selection-image" />
+                    <a class="button is-dark" id="selection-button">Find Out More</a>
+                </div>
+            </section>
+            <footer class="modal-card-foot">
+                <button class="button is-success" id="find-out-more">Find out more</button>
+                <button class="button is-success" id="add-to-day-out">Add to day out</button>
+                <button class="button" id="cca-cancel">Cancel</button>
+            </footer>
+        </div>
+    </div>
+
+    <!--Your day out modal-->
+    <div class="modal" id="dayout">
+        <div class="modal-background"></div>
+        <div class="modal-card">
+            <header class="modal-card-head">
+                <p class="modal-card-title">Your day out</p>
+                <button id="dayout-close" class="modal-close is-large" aria-label="close"></button>
+            </header>
+            <section class="modal-card-body">
+                <div class="message-body" id="selection-dayout1">
+                    <p id="dayout-title1">It's lonely here</p>
+                    <br />
+                    <p id="dayout-description1">Items that you have added to your day out will appear here when you have added them.</p>
+                    <br />
+                    <img class="is 3by4" id="selection-image-dayout1" />
+                </div>
+                <div class="message-body" id="selection-dayout2">
+                    <p id="dayout-title2"></p>
+                    <br />
+                    <p id="dayout-description2"></p>
+                    <br />
+                    <img class="is 3by4" id="selection-image-dayout2" />
+                </div>
+                <div class="message-body" id="selection-dayout3">
+                    <p id="dayout-title3"></p>
+                    <br />
+                    <p id="dayout-description3"></p>
+                    <br />
+                    <img class="is 3by4" id="selection-image-dayout3" />
+                </div>
+            </section>
+            <footer class="modal-card-foot">
+                <button class="button is-success" id="book">Book</button>
+                <button class="button is-success" id="cancel-items">Cancel</button>
+                <button class="button" id="dayout-cancel">Close</button>
+            </footer>
+        </div>
+    </div>
+
+    <div id="all">
+        <!--Your day out section-->
+        <br />
+        <section class="hero is-medium is-primary is-bold">
+            <div class="hero-body has-bg-img-second" id="dayout-hero">
+                <div class="container">
+                    <h1 class="title">
+                        Your day out
+                    </h1>
+                    <h2 class="subtitle">
+                        Click here to see the items currently in your day out.
+                    </h2>
+                </div>
+            </div>
+        </section>
+
+        <!--Famous landmarks heading-->
+        <br />
+        <section class="hero is-medium is-primary is-bold">
+            <div class="hero-body has-bg-img-third" id="landmarks-hero">
+                <div class="container">
+                    <h1 class="title">
+                        Famous landmarks
+                    </h1>
+                    <h2 class="subtitle">
+                        Click here to see famous landmarks to visit
+                    </h2>
+                </div>
+            </div>
+        </section>
+
+        <!--Famous landmarks section-->
+        <br />
+        <div id="landmarks-section">
+            <article class="message is-black">
+                <div class="message-header">
+                    <p>Famous landmarks</p>
+                    <button class="delete" aria-label="delete" id="landmarks-close"></button>
+                </div>
+                <div class="message-body">
+                    <div class="tile is-ancestor">
+                        <!--One-->
+                        <div class="tile is-2">
+                            <article class="tile-is-child container">
+                                <a class="card-link selection" href="#"></a>
+                                <figure class="image">
+                                    <img class="is 3by4" src="images/bigben.jpg" />
+                                </figure>
+                                <p class="subtitle card-title">Big Ben</p>
+                                <p class="card-description">A British cultural icon, recognised all over the world, the tower is one of the most prominent symbols of the United Kingdom and parliamentary democracy, and it is often used in the establishing shot of films set in London. The clock tower has been part of a Grade I listed building since 1970 and a UNESCO World Heritage Site since 1987. Big Ben is the nickname for the Great Bell of the clock at the north end of the Palace of Westminster in London and is usually extended to refer to both the clock and the clock tower. The tower is officially Elizabeth Tower, renamed to celebrate the Diamond Jubilee of Elizabeth II in 2012; until then, it was known simply as the Clock Tower. </p>
+                            </article>
+                        </div>
+                        <!--Two-->
+                        <div class="tile is-2">
+                            <article class="tile-is-child container">
+                                <a class="card-link selection" href="#"></a>
+                                <figure class="image">
+                                    <img class="is 3by4" src="images/eye.jpg" />
+                                </figure>
+                                <p class="subtitle card-title">London Eye</p>
+                                <p class="card-description">The London Eye is a giant Ferris wheel on the South Bank of the River Thames in London. It is Europe's tallest Ferris wheel, and offered the highest public viewing point in London until it was superseded by the 804-foot (245 m) high observation deck on the 72nd floor of The Shard, which opened to the public on 1 February 2013. It is the most popular paid tourist attraction in the United Kingdom with over 3.75 million visitors annually, and has made many appearances in popular culture.</p>
+                            </article>
+                        </div>
+                        <!--Three-->
+                        <div class="tile is-2">
+                            <article class="tile-is-child container">
+                                <a class="card-link selection" href="#"></a>
+                                <figure class="image">
+                                    <img class="is 3by4" src="images/shard.jpg" />
+                                </figure>
+                                <p class="subtitle card-title">The Shard</p>
+                                <p class="card-description">The Shard, also referred to as the Shard of Glass, Shard London Bridge and formerly London Bridge Tower, is a 95-storey skyscraper in Southwark, London, that forms part of the London Bridge Quarter development. Standing 309.7 metres (1,016 ft) high, the Shard is the tallest building in the United Kingdom, the tallest building in the European Union, the fourth-tallest building in Europe and the 96th-tallest building in the world. It is also the second-tallest free-standing structure in the United Kingdom, after the concrete tower of the Emley Moor transmitting station.</p>
+                            </article>
+                        </div>
+                        <!--Four-->
+                        <div class="tile is-2">
+                            <article class="tile-is-child container">
+                                <a class="card-link selection" href="#"></a>
+                                <figure class="image">
+                                    <img class="is 3by4" src="images/walkietalkie.jpg" />
+                                </figure>
+                                <p class="subtitle card-title">The Walkie Talkie</p>
+                                <p class="card-description">20 Fenchurch Street is a commercial skyscraper in London that takes its name from its address on Fenchurch Street, in the historic City of London financial district. It has been nicknamed 'The walkie-talkie' because of its distinctive shape. Construction was completed in spring 2014, and the top-floor 'sky garden' was opened in January 2015. The 34-storey building is 160 m (525 ft) tall, making it the sixth-tallest building in the City of London and the 12th tallest in London.</p>
+                            </article>
+                        </div>
+                        <!--Five-->
+                        <div class="tile is-2">
+                            <article class="tile-is-child container">
+                                <a class="card-link selection" href="#"></a>
+                                <figure class="image">
+                                    <img class="is 3by4" src="images/o2.jpg" />
+                                </figure>
+                                <p class="subtitle card-title">The O2 Arena</p>
+                                <p class="card-description">The O2 Arena, is a multi purpose indoor arena located in the centre of The O2 entertainment complex on the Greenwich Peninsula in south east London. The arena was built under the former Millennium Dome, a large dome shaped building built to house an exhibition celebrating the turn of the third millennium; as the dome shaped structure still stands over the arena, The Dome remains a name in common usage for the venue. The arena, as well as the total O2 complex, is named after its primary sponsor, the telecommunications company O2. The O2 Arena has the second highest seating capacity of any indoor venue in the United Kingdom.</p>
+                            </article>
+                        </div>
+                        <!--Six-->
+                        <div class="tile is-2">
+                            <article class="tile-is-child container">
+                                <a class="card-link selection" href="#"></a>
+                                <figure class="image">
+                                    <img class="is 3by4" src="images/towerbridge.jpg" />
+                                </figure>
+                                <p class="subtitle card-title">Tower Bridge</p>
+                                <p class="card-description">Tower Bridge is a combined bascule and suspension bridge in London built between 1886 and 1894. The bridge crosses the River Thames close to the Tower of London and has become an iconic symbol of London, resulting in it sometimes being confused with London Bridge, situated some 0.5 mi (0.80 km) upstream. Tower Bridge is one of five London bridges now owned and maintained by the Bridge House Estates, a charitable trust overseen by the City of London Corporation. It is the only one of the Trust's bridges not to connect the City of London directly to the Southwark bank, as its northern landfall is in Tower Hamlets.</p>
+                            </article>
+                        </div>
+                    </div>
+                </div>
+            </article>
+        </div>
+
+        <!--Attractions heading-->
+        <section class="hero is-medium is-primary is-bold">
+            <div class="hero-body has-bg-img-fourth" id="attractions-hero">
+                <div class="container">
+                    <h1 class="title">
+                        London attractions
+                    </h1>
+                    <h2 class="subtitle">
+                        Select a London attraction to find out more about.
+                    </h2>
+                </div>
+            </div>
+        </section>
+
+        <!--Attractions row-->
+        <br />
+        <div id="attractions-section">
+            <article class="message is-black">
+                <div class="message-header">
+                    <p>London attractions</p>
+                    <button class="delete" aria-label="delete" id="attractions-close"></button>
+                </div>
+                <div class="message-body">
+                    <div class="tile is-ancestor">
+                        <!--One-->
+                        <div class="tile is-2">
+                            <article class="tile-is-child container">
+                                <a class="card-link selection" href="#"></a>
+                                <figure class="image">
+                                    <img class="is 3by4" src="images/naturalhistorymuseum.jpg" />
+                                </figure>
+                                <p class="subtitle card-title">The Natural History Museum</p>
+                                <p class="card-description">The Natural History Museum in London is a natural history museum that exhibits a vast range of specimens from various segments of natural history. It is one of three major museums on Exhibition Road in South Kensington, the others being the Science Museum and the Victoria and Albert Museum. The museum is home to life and earth science specimens comprising some 80 million items within five main collections: botany, entomology, mineralogy, paleontology and zoology. The museum is a world-renowned centre of research specialising in taxonomy, identification and conservation.</p>
+                            </article>
+                        </div>
+                        <!--Two-->
+                        <div class="tile is-2">
+                            <article class="tile-is-child container">
+                                <a class="card-link selection" href="#"></a>
+                                <figure class="image">
+                                    <img class="is 3by4" src="images/nationalgallery.jpg" />
+                                </figure>
+                                <p class="subtitle card-title">The National Gallery</p>
+                                <p class="card-description">The National Gallery is an art museum in Trafalgar Square in the City of Westminster, in Central London. Founded in 1824, it houses a collection of over 2,300 paintings dating from the mid-13th century to 1900.</p>
+                            </article>
+                        </div>
+                        <!--Three-->
+                        <div class="tile is-2">
+                            <article class="tile-is-child container">
+                                <a class="card-link selection" href="#"></a>
+                                <figure class="image">
+                                    <img class="is 3by4" src="images/monument.jpg" />
+                                </figure>
+                                <p class="subtitle card-title">The Monument</p>
+                                <p class="card-description">The Monument to the Great Fire of London, more commonly known simply as the Monument, is a Doric column in the City of London, near the northern end of London Bridge, that commemorates the Great Fire of London. It stands at the junction of Monument Street and Fish Street Hill, 202 ft (62 m) tall and 202 ft (62 m) from the spot in Pudding Lane where the Great Fire started on 2 September 1666. Another monument, the Golden Boy of Pye Corner, marks the point near Smithfield where the fire was stopped. Constructed between 1671 and 1677, it was built on the site of St. Margaret's, Fish Street, the first church to be burnt down by the Great Fire.</p>
+                            </article>
+                        </div>
+                        <!--Four-->
+                        <div class="tile is-2">
+                            <article class="tile-is-child container">
+                                <a class="card-link selection" href="#"></a>
+                                <figure class="image">
+                                    <img class="is 3by4" src="images/hamptoncourt.jpg" />
+                                </figure>
+                                <p class="subtitle card-title">Hampton Court Palace</p>
+                                <p class="card-description">Hampton Court Palace is a royal palace in the borough of Richmond upon Thames, London, England, 11.7 miles (18.8 kilometres) south west and upstream of central London on the River Thames. Building of the palace began in 1515 for Cardinal Thomas Wolsey, a favourite of King Henry VIII. In 1529, as Wolsey fell from favour, the King seized the palace for himself and later enlarged it. Along with St James's Palace, it is one of only two surviving palaces out of the many owned by King Henry VIII.</p>
+                            </article>
+                        </div>
+                        <!--Five-->
+                        <div class="tile is-2">
+                            <article class="tile-is-child container">
+                                <a class="card-link selection" href="#"></a>
+                                <figure class="image">
+                                    <img class="is 3by4" src="images/thetower.jpg" />
+                                </figure>
+                                <p class="subtitle card-title">The Tower Of London</p>
+                                <p class="card-description">The Tower of London, officially Her Majesty's Royal Palace and Fortress of the Tower of London, is a historic castle located on the north bank of the River Thames in central London. It lies within the London Borough of Tower Hamlets, separated from the eastern edge of the square mile of the City of London by the open space known as Tower Hill. It was founded towards the end of 1066 as part of the Norman Conquest of England. The White Tower, which gives the entire castle its name, was built by William the Conqueror in 1078 and was a resented symbol of oppression, inflicted upon London by the new ruling elite. The castle was used as a prison from 1100 (Ranulf Flambard) until 1952 (Kray twins), although that was not its primary purpose. A grand palace early in its history, it served as a royal residence.</p>
+                            </article>
+                        </div>
+                        <!--Six-->
+                        <div class="tile is-2">
+                            <article class="tile-is-child container">
+                                <a class="card-link selection" href="#"></a>
+                                <figure class="image">
+                                    <img class="is 3by4" src="images/londonzoo.jpg" />
+                                </figure>
+                                <p class="subtitle card-title">London Zoo</p>
+                                <p class="card-description">London Zoo is the world's oldest scientific zoo. It was opened in London on 27 April 1828, and was originally intended to be used as a collection for scientific study. In 1831 or 1832 the animals of the Tower of London menagerie were transferred to the zoo's collection. It was eventually opened to the public in 1847. Today it houses a collection of 698 species of animals, with 20,166 individuals, making it one of the largest collections in the United Kingdom. The zoo is sometimes called Regent's Zoo.</p>
+                            </article>
+                        </div>
+                    </div>
+                </div>
+            </article>
+        </div>
+
+        <!--Transport heading-->
+        <section class="hero is-medium is-primary is-bold">
+            <div class="hero-body has-bg-img-fifth" id="transport-hero">
+                <div class="container">
+                    <h1 class="title">
+                        Transport in London
+                    </h1>
+                    <h2 class="subtitle">
+                        Select a transport method to find out more.
+                    </h2>
+                </div>
+            </div>
+        </section>
+
+        <!--Transport section-->
+        <br />
+        <div id="transport-section">
+            <article class="message is-black">
+                <div class="message-header">
+                    <p>London transport</p>
+                    <button class="delete" aria-label="delete" id="transport-close"></button>
+                </div>
+                <div class="message-body">
+                    <div class="tile is-ancestor">
+                        <!--One-->
+                        <div class="tile is-2">
+                            <article class="tile-is-child container">
+                                <a class="card-link selection" href="#"></a>
+                                <figure class="image">
+                                    <img class="is 3by4" src="images/tube.jpg" />
+                                </figure>
+                                <p class="subtitle card-title">Travel by Tube</p>
+                                <p class="card-description">The London Underground (also known simply as the Underground, or by its nickname the Tube) is a public rapid transit system serving London and some parts of the adjacent counties of Buckinghamshire, Essex and Hertfordshire in the United Kingdom.</p>
+                            </article>
+                        </div>
+                        <!--Two-->
+                        <div class="tile is-2">
+                            <article class="tile-is-child container">
+                                <a class="card-link selection" href="#"></a>
+                                <figure class="image">
+                                    <img class="is 3by4" src="images/paddington.jpg" />
+                                </figure>
+                                <p class="subtitle card-title">Travel by Rail</p>
+                                <p class="card-description">There are 366 heavy rail passenger stations in and around London, England (330 being within the boundary of Greater London) that are accessible using Transport for London tickets and passes. United Kingdom railway stations are grouped into one of a number of categories, ranging from A—national hub to F—small unstaffed bare platform. Many of the principal central London stations are managed by Network Rail and together form a London station group. Most other stations are managed by the train operating company that provides the majority of services at the station. The London Underground is the manager of some stations that are also served by heavy rail services.</p>
+                            </article>
+                        </div>
+                        <!--Three-->
+                        <div class="tile is-2">
+                            <article class="tile-is-child container">
+                                <a class="card-link selection" href="#"></a>
+                                <figure class="image">
+                                    <img class="is 3by4" src="images/bus.jpg" />
+                                </figure>
+                                <p class="subtitle card-title">Travel by Bus</p>
+                                <p class="card-description">London Buses is the subsidiary of Transport for London (TfL) that manages bus services within Greater London. It was formed following the Greater London Authority Act 1999 that transferred control of bus services in Greater London and its surrounding areas from the UK Government's London Regional Transport (LRT) to TfL, controlled by the locally elected Mayor of London.</p>
+                            </article>
+                        </div>
+                        <!--Four-->
+                        <div class="tile is-2">
+                            <article class="tile-is-child container">
+                                <a class="card-link selection" href="#"></a>
+                                <figure class="image">
+                                    <img class="is 3by4" src="images/taxi.jpg" />
+                                </figure>
+                                <p class="subtitle card-title">Travel by Taxi</p>
+                                <p class="card-description">A hackney or hackney carriage (also called a cab, black cab, hack or London taxi) is a carriage or automobile for hire. A hackney of a more expensive or high class was called a remise.</p>
+                            </article>
+                        </div>
+                        <!--Five-->
+                        <div class="tile is-2">
+                            <article class="tile-is-child container">
+                                <a class="card-link selection" href="#"></a>
+                                <figure class="image">
+                                    <img class="is 3by4" src="images/bike.jpg" />
+                                </figure>
+                                <p class="subtitle card-title">Travel by Bike</p>
+                                <p class="card-description">You can hire a bike from as little as £2. Simply go to any docking station with your bank card and touch the screen to get started. There's no need to book - hire a bike, ride it where you like, then return it to any docking station.</p>
+                            </article>
+                        </div>
+                        <!--Six-->
+                        <div class="tile is-2">
+                            <article class="tile-is-child container">
+                                <a class="card-link selection" href="#"></a>
+                                <figure class="image">
+                                    <img class="is 3by4" src="images/air.jpg" />
+                                </figure>
+                                <p class="subtitle card-title">Travel by Air</p>
+                                <p class="card-description">The metropolitan area of London, England, United Kingdom is served by six international airports and several smaller airports. Together, they make the busiest airport system in the world by passenger numbers and the second-busiest by aircraft movements. In 2016, the six airports handled a total of 163,231,321 passengers. The London airports handle 60% of all the UK's air traffic. The airports serve a total of 14 domestic destinations and 396 international destinations.</p>
+                            </article>
+                        </div>
+                    </div>
+                </div>
+            </article>
+        </div>
+    </div>
+
+</body>
+</html>

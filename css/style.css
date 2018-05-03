@@ -1,0 +1,105 @@
+﻿html {
+    background-color: black;
+}
+
+a.card-link {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    z-index: 1;
+}
+
+p.card-description {
+    display: none;
+}
+
+.grayscale {
+    -webkit-filter: grayscale(100%);
+    -moz-filter: grayscale(100%);
+    filter: grayscale(100%);
+    transition: all 1s ease;
+}
+
+.colourscale {
+    -webkit-filter: grayscale(0%);
+    -moz-filter: grayscale(0%);
+    filter: grayscale(0%);
+    transition: all 1s ease;
+}
+
+#selection-message {
+    color: white;
+}
+
+#selection-description {
+    color: white;
+}
+
+#selection-picture {
+    text-align: center;
+}
+
+#selection-image {
+    position: relative;
+    height: 600px;
+    width: auto;
+    text-align: center;
+}
+
+#selection-button {
+    visibility: hidden;
+    text-align: center;
+}
+
+#landmarks-section {
+    display: none;
+    transition: height 2s;
+    -moz-transition: height 2s; /* Firefox 4 */
+    -webkit-transition: height 2s; /* Safari and Chrome */
+    -o-transition: height 2s; /* Opera */
+}
+
+#attractions-section {
+    display: none;
+}
+
+#transport-section {
+    display: none;
+}
+
+#added-message {
+    display: none;
+}
+
+#dayout-title1 {
+    color: white;
+    font-size: 20px;
+}
+
+#dayout-title2 {
+    color: white;
+    font-size: 20px;
+}
+
+#dayout-title3 {
+    color: white;
+    font-size: 20px;
+}
+
+#dayout-description1 {
+    color: white;
+}
+
+#dayout-description2 {
+    color: white;
+}
+
+#dayout-description3 {
+    color: white;
+}
+
+
+
+
